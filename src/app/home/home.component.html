@@ -1,0 +1,56 @@
+<app-navigation></app-navigation>
+
+<h3>*ngFor Example</h3>
+<div class="ngfor-div" id="ngfor-div">
+  <article>
+    <h4>SW members list</h4>
+    <ul>
+      <li *ngFor="let ppl of swMemberList">{{ppl}}</li>
+    </ul>
+  </article>
+</div>
+
+<hr>
+
+<h3>*ngIf Example</h3>
+<h4>release firmware</h4>
+<div class="ngif-div" id="ngif-div">
+  <ul>
+    <li *ngFor="let fw of firmwares">
+      <span>{{fw.name}}</span>
+      <button *ngIf="fw.status === 'release'" class="btn btn-primary btn-sm">Release</button>
+    </li>
+  </ul>
+</div>
+
+<hr>
+
+<div class="statement-div">
+  <button (click)="showAlert()">Click</button>
+</div>
+
+<hr>
+
+<div class="manage-data">
+  <h4>{{myName}}</h4>
+</div>
+
+<hr>
+
+<div class="tempd-forms">
+  <h3>Template driven Forms</h3>
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="form-group input-account">
+      <input [(ngModel)]="account" type="email" class="form-control" id="email" name="email" placeholder="Email"
+        minlength="5"
+        pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+        #name="ngModel" required>
+    </div>
+
+    <div id="emailError" class="alert alert-danger errors" [hidden]="name.valid || name.pristine">
+      <p>Please input Email.</p>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Submit</button>
+  </form>
+</div>

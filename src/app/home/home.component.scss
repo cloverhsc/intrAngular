@@ -1,0 +1,23 @@
+$background: #69a0d6;
+$mywidth: 400px;
+
+#ngfor-div {
+  background-color: $background;
+  width: $mywidth;
+}
+
+#ngif-div {
+  li {
+    border-bottom: 1px solid #ccc;
+  }
+
+  button {
+    margin-left: 1em;
+  }
+}
+
+form {
+  position: relative;
+  height: 80%;
+
+}
